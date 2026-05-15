@@ -87,6 +87,7 @@ export default function PipelinePage() {
 
       {/* Kanban board */}
       <div
+        className="kanban-board"
         style={{
           display: "grid",
           gridTemplateColumns: `repeat(${columns.length}, 260px)`,

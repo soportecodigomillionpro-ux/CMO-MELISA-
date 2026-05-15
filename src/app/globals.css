@@ -284,15 +284,24 @@ body {
     margin-bottom: 8px;
   }
 
-  /* Collapse inline-style grids to single column (excluye el calendario) */
-  .app-main [style*="grid-template-columns"]:not(.cal-grid),
-  .app-main [style*="gridTemplateColumns"]:not(.cal-grid) {
+  /* Collapse inline-style grids to single column (excluye calendario y kanban) */
+  .app-main [style*="grid-template-columns"]:not(.cal-grid):not(.kanban-board),
+  .app-main [style*="gridTemplateColumns"]:not(.cal-grid):not(.kanban-board) {
     grid-template-columns: 1fr !important;
   }
 
   /* El calendario siempre mantiene 7 columnas */
   .cal-grid {
     grid-template-columns: repeat(7, 1fr) !important;
+  }
+
+  /* Kanban: scroll horizontal en móvil, no colapsa */
+  .kanban-board {
+    display: grid !important;
+    grid-template-columns: repeat(5, 240px) !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
   }
 
   /* Adjust font sizes */
