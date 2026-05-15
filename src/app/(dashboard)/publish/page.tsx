@@ -1,5 +1,5 @@
 import AppShell from "@/components/AppShell";
-import { Send, Image, Video, Layers, Calendar, Clock, Sparkles, Upload, Hash, AlignLeft } from "lucide-react";
+import { Send, Image, Video, Layers, Calendar, Clock, Upload, Hash, AlignLeft } from "lucide-react";
 
 export default function PublishPage() {
   return (
@@ -110,26 +110,8 @@ export default function PublishPage() {
                 lineHeight: 1.6,
               }}
             />
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 10 }}>
+            <div style={{ marginTop: 10 }}>
               <div style={{ fontSize: 12, color: "var(--text-muted)" }}>0 / 2,200 caracteres</div>
-              <button
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: "var(--pink)",
-                  background: "rgba(255,62,165,0.08)",
-                  border: "1px solid rgba(255,62,165,0.2)",
-                  borderRadius: 8,
-                  padding: "6px 12px",
-                  cursor: "pointer",
-                }}
-              >
-                <Sparkles size={12} />
-                Generar con IA
-              </button>
             </div>
           </div>
 
