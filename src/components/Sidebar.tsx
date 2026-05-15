@@ -18,6 +18,7 @@ import {
   Lightbulb,
   FileText,
   Home,
+  X,
 } from "lucide-react";
 
 function IgIcon({ size = 17 }: { size?: number }) {
@@ -67,11 +68,17 @@ const navGroups = [
   },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
 
   return (
     <aside
+      className={`app-sidebar ${isOpen ? "sidebar-open" : ""}`}
       style={{
         width: 240,
         minHeight: "100vh",
@@ -84,11 +91,20 @@ export default function Sidebar() {
         top: 0,
         left: 0,
         bottom: 0,
-        zIndex: 50,
+        zIndex: 100,
         overflowY: "auto",
         boxShadow: "var(--shadow-sm)",
       }}
     >
+      {/* Mobile close button */}
+      <button
+        className="sidebar-close-btn"
+        onClick={onClose}
+        style={{ background: "none", border: "none", cursor: "pointer", padding: 4, color: "var(--text-muted)", alignSelf: "flex-end", display: "none" }}
+      >
+        <X size={20} />
+      </button>
+
       {/* Logo */}
       <div style={{ marginBottom: 28, padding: "0 4px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -135,17 +151,12 @@ export default function Sidebar() {
               {group.label}
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              {group.items.map(({ href, label, icon: Icon, badge }: { href: string; label: string; icon: React.ComponentType<{ size?: number }>; badge?: number }) => {
+              {group.items.map(({ href, label, icon: Icon }: { href: string; label: string; icon: React.ComponentType<{ size?: number }> }) => {
                 const active = href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
                 return (
-                  <Link key={href} href={href} className={`sidebar-link ${active ? "active" : ""}`}>
+                  <Link key={href} href={href} className={`sidebar-link ${active ? "active" : ""}`} onClick={onClose}>
                     <Icon size={16} />
                     <span style={{ flex: 1 }}>{label}</span>
-                    {badge && (
-                      <span style={{ width: 18, height: 18, borderRadius: "50%", background: "var(--pink)", color: "white", fontSize: 10, fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        {badge}
-                      </span>
-                    )}
                     {active && <ChevronRight size={13} style={{ color: "var(--pink)", opacity: 0.7 }} />}
                   </Link>
                 );

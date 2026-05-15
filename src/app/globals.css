@@ -221,3 +221,95 @@ body {
 
 .animate-pulse-pink { animation: pulse-pink 2s ease-in-out infinite; }
 .animate-float      { animation: float 4s ease-in-out infinite; }
+
+/* ── Mobile topbar (hidden on desktop) ──────────── */
+.mobile-topbar {
+  display: none;
+}
+
+/* ── App main (desktop) ─────────────────────────── */
+.app-main {
+  margin-left: 240px;
+  flex: 1;
+  min-height: 100vh;
+  padding: 32px 36px;
+  overflow-x: hidden;
+}
+
+/* ── App sidebar (desktop always visible) ────────── */
+.app-sidebar {
+  transform: translateX(0);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── RESPONSIVE: Mobile ──────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Topbar */
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 16px;
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
+    z-index: 90;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Main content: full width, top padding for topbar */
+  .app-main {
+    margin-left: 0 !important;
+    padding: 76px 16px 24px 16px !important;
+  }
+
+  /* Sidebar: hidden off-screen by default */
+  .app-sidebar {
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+  .app-sidebar.sidebar-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Show close button inside sidebar on mobile */
+  .sidebar-close-btn {
+    display: flex !important;
+    margin-bottom: 8px;
+  }
+
+  /* Collapse ALL inline-style grids to single column */
+  .app-main [style*="grid-template-columns"],
+  .app-main [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Adjust font sizes */
+  h1[style] {
+    font-size: 28px !important;
+  }
+
+  /* Cards: reduce padding on mobile */
+  .card {
+    border-radius: 12px;
+  }
+
+  /* Kanban: allow horizontal scroll */
+  .app-main [style*="overflowX: auto"] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+  }
+
+  /* Buttons: full width on small screens where needed */
+  .btn-primary,
+  .btn-ghost {
+    font-size: 13px;
+  }
+}
