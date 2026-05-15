@@ -197,7 +197,7 @@ function MiniCalendar() {
       </div>
 
       {/* Day headers */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", marginBottom: 6 }}>
+      <div className="cal-grid" style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", marginBottom: 6 }}>
         {weekDays.map((d) => (
           <div
             key={d}
@@ -216,7 +216,7 @@ function MiniCalendar() {
       </div>
 
       {/* Day cells */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2 }}>
+      <div className="cal-grid" style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: 2 }}>
         {days.map((day) => {
           const isCurrentMonth = isSameMonth(day, today);
           const isTodayDay = isToday(day);

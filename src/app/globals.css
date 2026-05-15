@@ -284,10 +284,15 @@ body {
     margin-bottom: 8px;
   }
 
-  /* Collapse ALL inline-style grids to single column */
-  .app-main [style*="grid-template-columns"],
-  .app-main [style*="gridTemplateColumns"] {
+  /* Collapse inline-style grids to single column (excluye el calendario) */
+  .app-main [style*="grid-template-columns"]:not(.cal-grid),
+  .app-main [style*="gridTemplateColumns"]:not(.cal-grid) {
     grid-template-columns: 1fr !important;
+  }
+
+  /* El calendario siempre mantiene 7 columnas */
+  .cal-grid {
+    grid-template-columns: repeat(7, 1fr) !important;
   }
 
   /* Adjust font sizes */
