@@ -24,7 +24,7 @@ export default function PublishPage() {
     setHashtags(hashtags.filter((h) => h !== tag));
   }
 
-  const types: { id: ContentType; icon: React.ComponentType<{ size?: number }>; label: string }[] = [
+  const types: { id: ContentType; icon: React.ComponentType<{ size?: number; style?: React.CSSProperties }>; label: string }[] = [
     { id: "imagen", icon: Image, label: "Imagen" },
     { id: "carrusel", icon: Layers, label: "Carrusel" },
     { id: "reel", icon: Video, label: "Reel" },
