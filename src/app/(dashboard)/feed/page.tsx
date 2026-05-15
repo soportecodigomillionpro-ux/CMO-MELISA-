@@ -77,10 +77,10 @@ export default function FeedPage() {
         }}
       >
         {[
-          { label: "Seguidores", value: "48.3K", icon: IgIcon, color: "#FF3EA5" },
-          { label: "Posts totales", value: "284", icon: Grid3X3, color: "#C084FC" },
-          { label: "Alcance promedio", value: "22.7K", icon: Eye, color: "#4D9FFF" },
-          { label: "Eng. promedio", value: "7.1%", icon: TrendingUp, color: "#00E5A0" },
+          { label: "Seguidores", value: "48.3K", icon: IgIcon, color: "#D07FAA" },
+          { label: "Posts totales", value: "284", icon: Grid3X3, color: "#B8A8E8" },
+          { label: "Alcance promedio", value: "22.7K", icon: Eye, color: "#85B8E8" },
+          { label: "Eng. promedio", value: "7.1%", icon: TrendingUp, color: "var(--green)" },
         ].map((s) => {
           const Icon = s.icon;
           return (
@@ -161,7 +161,7 @@ export default function FeedPage() {
                   style={{
                     position: "absolute",
                     inset: 0,
-                    background: "linear-gradient(to top, rgba(8,8,15,0.85) 0%, transparent 50%)",
+                    background: "linear-gradient(to top, rgba(45,36,72,0.75) 0%, transparent 50%)",
                   }}
                 />
                 <div style={{ position: "absolute", bottom: 10, left: 12, right: 12 }}>
@@ -179,10 +179,10 @@ export default function FeedPage() {
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 8 }}>
                   {[
-                    { icon: Heart, value: post.likes.toLocaleString(), color: "#FF3EA5" },
-                    { icon: MessageCircle, value: post.comments, color: "#4D9FFF" },
-                    { icon: Eye, value: `${(post.reach / 1000).toFixed(0)}K`, color: "#C084FC" },
-                    { icon: Bookmark, value: post.saves, color: "#FFD60A" },
+                    { icon: Heart, value: post.likes.toLocaleString(), color: "#D07FAA" },
+                    { icon: MessageCircle, value: post.comments, color: "#85B8E8" },
+                    { icon: Eye, value: `${(post.reach / 1000).toFixed(0)}K`, color: "#B8A8E8" },
+                    { icon: Bookmark, value: post.saves, color: "#F5C97A" },
                   ].map(({ icon: Icon, value, color }) => (
                     <div key={color} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                       <Icon size={13} style={{ color }} />

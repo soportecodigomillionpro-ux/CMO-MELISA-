@@ -13,9 +13,9 @@ const assets = [
 ];
 
 const typeIcon = (type: string) => {
-  if (type === "image") return <Image size={14} style={{ color: "#4D9FFF" }} />;
-  if (type === "video") return <Video size={14} style={{ color: "#FF3EA5" }} />;
-  return <FileText size={14} style={{ color: "#FFD60A" }} />;
+  if (type === "image") return <Image size={14} style={{ color: "#85B8E8" }} />;
+  if (type === "video") return <Video size={14} style={{ color: "#D07FAA" }} />;
+  return <FileText size={14} style={{ color: "#F5C97A" }} />;
 };
 
 const tags = ["Todos", "Campaña Verano", "Editorial", "Behind the scenes", "Tutoriales", "Briefings"];
@@ -45,10 +45,10 @@ export default function LibraryPage() {
       {/* Stats */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14, marginBottom: 24 }}>
         {[
-          { label: "Imágenes", value: "184", icon: Image, color: "#4D9FFF" },
-          { label: "Videos", value: "42", icon: Video, color: "#FF3EA5" },
-          { label: "Documentos", value: "28", icon: FileText, color: "#FFD60A" },
-          { label: "Espacio usado", value: "4.2 GB", icon: FolderOpen, color: "#00E5A0" },
+          { label: "Imágenes", value: "184", icon: Image, color: "#85B8E8" },
+          { label: "Videos", value: "42", icon: Video, color: "#D07FAA" },
+          { label: "Documentos", value: "28", icon: FileText, color: "#F5C97A" },
+          { label: "Espacio usado", value: "4.2 GB", icon: FolderOpen, color: "var(--green)" },
         ].map((s) => {
           const Icon = s.icon;
           return (

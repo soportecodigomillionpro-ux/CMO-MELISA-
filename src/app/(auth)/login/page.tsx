@@ -39,7 +39,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm relative">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--pink)] to-[var(--pink-dark)] pink-glow-strong mb-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#E8A0BF] to-[#B8A8E8] pink-glow-strong mb-4">
             <Sparkles size={24} className="text-white" />
           </div>
           <h1 className="text-2xl font-bold text-[var(--text-primary)]">CMO Melisa</h1>

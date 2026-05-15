@@ -35,8 +35,8 @@ function IgIcon() {
 const modules = [
   {
     group: "Analytics & Datos",
-    color: "#FF3EA5",
-    glow: "rgba(255,62,165,0.15)",
+    color: "#D07FAA",
+    glow: "rgba(208,127,170,0.14)",
     items: [
       {
         href: "/command",
@@ -66,8 +66,8 @@ const modules = [
   },
   {
     group: "Creación & Publicación",
-    color: "#4D9FFF",
-    glow: "rgba(77,159,255,0.15)",
+    color: "#85B8E8",
+    glow: "rgba(133,184,232,0.14)",
     items: [
       {
         href: "/publish",
@@ -97,8 +97,8 @@ const modules = [
   },
   {
     group: "Planificación",
-    color: "#00E5A0",
-    glow: "rgba(0,229,160,0.12)",
+    color: "#7EC8A4",
+    glow: "rgba(126,200,164,0.13)",
     items: [
       {
         href: "/pipeline",
@@ -128,8 +128,8 @@ const modules = [
   },
   {
     group: "Gestión & Equipo",
-    color: "#FFD60A",
-    glow: "rgba(255,214,10,0.12)",
+    color: "#C8963A",
+    glow: "rgba(245,201,122,0.14)",
     items: [
       {
         href: "/aprobaciones",
@@ -236,10 +236,10 @@ export default function HubPage() {
         {/* Quick stats */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 14, marginBottom: 40 }}>
           {[
-            { label: "Seguidores", value: "48.3K", delta: "+2.4%", color: "#FF3EA5" },
-            { label: "Alcance semanal", value: "31.2K", delta: "+18.7%", color: "#4D9FFF" },
-            { label: "Engagement", value: "6.4%", delta: "+1.2%", color: "#00E5A0" },
-            { label: "Posts este mes", value: "6 / 20", delta: "14 restantes", color: "#FFD60A" },
+            { label: "Seguidores", value: "48.3K", delta: "+2.4%", color: "var(--pink-dark)" },
+            { label: "Alcance semanal", value: "31.2K", delta: "+18.7%", color: "var(--blue)" },
+            { label: "Engagement", value: "6.4%", delta: "+1.2%", color: "var(--green)" },
+            { label: "Posts este mes", value: "6 / 20", delta: "14 restantes", color: "var(--yellow)" },
           ].map((s) => (
             <div key={s.label} className="card" style={{ padding: 16 }}>
               <div style={{ fontSize: 11, color: "var(--text-muted)", marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.08em" }}>{s.label}</div>

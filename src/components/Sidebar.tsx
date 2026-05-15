@@ -86,6 +86,7 @@ export default function Sidebar() {
         bottom: 0,
         zIndex: 50,
         overflowY: "auto",
+        boxShadow: "var(--shadow-sm)",
       }}
     >
       {/* Logo */}
@@ -97,7 +98,7 @@ export default function Sidebar() {
               width: 36,
               height: 36,
               borderRadius: 10,
-              background: "linear-gradient(135deg, #FF3EA5, #CC1F7A)",
+              background: "linear-gradient(135deg, #E8A0BF, #D07FAA)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -156,8 +157,8 @@ export default function Sidebar() {
 
       {/* Bottom user */}
       <div style={{ borderTop: "1px solid var(--border)", paddingTop: 16, marginTop: 16 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 10, background: "var(--bg-card)", border: "1px solid var(--border)" }}>
-          <div style={{ width: 32, height: 32, borderRadius: "50%", background: "linear-gradient(135deg, #FF3EA5, #C084FC)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, color: "white", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 12, background: "var(--bg-base)", border: "1px solid var(--border)", boxShadow: "var(--shadow-sm)" }}>
+          <div style={{ width: 32, height: 32, borderRadius: "50%", background: "linear-gradient(135deg, #E8A0BF, #B8A8E8)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, color: "white", flexShrink: 0 }}>
             ME
           </div>
           <div style={{ minWidth: 0 }}>

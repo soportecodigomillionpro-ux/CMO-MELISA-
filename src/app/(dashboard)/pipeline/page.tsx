@@ -15,7 +15,7 @@ const columns = [
   {
     id: "produccion",
     label: "En producción",
-    color: "#4D9FFF",
+    color: "#85B8E8",
     accent: "rgba(77,159,255,0.1)",
     cards: [
       { id: 3, title: "5 looks para verano", type: "Carrusel", assignee: "Ana", due: "17 May" },
@@ -25,7 +25,7 @@ const columns = [
   {
     id: "revision",
     label: "En revisión",
-    color: "#FFD60A",
+    color: "#F5C97A",
     accent: "rgba(255,214,10,0.1)",
     cards: [
       { id: 5, title: "Reel primavera 2026", type: "Reel", assignee: "Luis", due: "16 May" },
@@ -34,7 +34,7 @@ const columns = [
   {
     id: "aprobado",
     label: "Aprobado",
-    color: "#00E5A0",
+    color: "var(--green)",
     accent: "rgba(0,229,160,0.1)",
     cards: [
       { id: 6, title: "Promo fin de semana", type: "Imagen", assignee: "Ana", due: "15 May" },
@@ -44,7 +44,7 @@ const columns = [
   {
     id: "publicado",
     label: "Publicado",
-    color: "#FF3EA5",
+    color: "#D07FAA",
     accent: "rgba(255,62,165,0.08)",
     cards: [
       { id: 8, title: "Detrás de cámaras 🎬", type: "Reel", assignee: "Luis", due: "12 May" },

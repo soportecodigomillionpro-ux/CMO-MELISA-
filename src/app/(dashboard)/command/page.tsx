@@ -51,7 +51,7 @@ const kpis = [
     change: "+2.4%",
     up: true,
     icon: Users,
-    color: "#FF3EA5",
+    color: "#D07FAA",
     bg: "rgba(255,62,165,0.1)",
   },
   {
@@ -60,7 +60,7 @@ const kpis = [
     change: "+18.7%",
     up: true,
     icon: Eye,
-    color: "#4D9FFF",
+    color: "#85B8E8",
     bg: "rgba(77,159,255,0.1)",
   },
   {
@@ -69,7 +69,7 @@ const kpis = [
     change: "+1.3%",
     up: true,
     icon: Heart,
-    color: "#00E5A0",
+    color: "var(--green)",
     bg: "rgba(0,229,160,0.1)",
   },
   {
@@ -78,7 +78,7 @@ const kpis = [
     change: "-4.1%",
     up: false,
     icon: MessageCircle,
-    color: "#FFD60A",
+    color: "#F5C97A",
     bg: "rgba(255,214,10,0.1)",
   },
 ];
@@ -274,8 +274,8 @@ export default function DashboardPage() {
             <AreaChart data={reachData}>
               <defs>
                 <linearGradient id="pinkGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#FF3EA5" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#FF3EA5" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#D07FAA" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#D07FAA" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <XAxis
@@ -298,7 +298,7 @@ export default function DashboardPage() {
               <Area
                 type="monotone"
                 dataKey="reach"
-                stroke="#FF3EA5"
+                stroke="#D07FAA"
                 strokeWidth={2.5}
                 fill="url(#pinkGrad)"
                 dot={false}
@@ -338,8 +338,8 @@ export default function DashboardPage() {
             <AreaChart data={engagementData}>
               <defs>
                 <linearGradient id="purpleGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#C084FC" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#C084FC" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#B8A8E8" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#B8A8E8" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <XAxis
@@ -362,7 +362,7 @@ export default function DashboardPage() {
               <Area
                 type="monotone"
                 dataKey="rate"
-                stroke="#C084FC"
+                stroke="#B8A8E8"
                 strokeWidth={2}
                 fill="url(#purpleGrad)"
                 dot={false}

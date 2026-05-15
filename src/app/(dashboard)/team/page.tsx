@@ -2,19 +2,19 @@ import AppShell from "@/components/AppShell";
 import { Users, CheckCircle2, Clock, AlertCircle, Plus, Mail } from "lucide-react";
 
 const team = [
-  { name: "Melisa Escobar", role: "CMO", initials: "ME", color: "#FF3EA5", tasks: 12, done: 9, status: "active" },
-  { name: "Ana García", role: "Content Creator", initials: "AG", color: "#4D9FFF", tasks: 8, done: 5, status: "active" },
-  { name: "Luis Martín", role: "Video Editor", initials: "LM", color: "#00E5A0", tasks: 6, done: 6, status: "active" },
-  { name: "Marta Ruiz", role: "Diseñadora", initials: "MR", color: "#C084FC", tasks: 5, done: 2, status: "busy" },
-  { name: "CEO", role: "Aprobaciones", initials: "CE", color: "#FFD60A", tasks: 3, done: 1, status: "pending" },
+  { name: "Melisa Escobar", role: "CMO", initials: "ME", color: "#D07FAA", tasks: 12, done: 9, status: "active" },
+  { name: "Ana García", role: "Content Creator", initials: "AG", color: "#85B8E8", tasks: 8, done: 5, status: "active" },
+  { name: "Luis Martín", role: "Video Editor", initials: "LM", color: "var(--green)", tasks: 6, done: 6, status: "active" },
+  { name: "Marta Ruiz", role: "Diseñadora", initials: "MR", color: "#B8A8E8", tasks: 5, done: 2, status: "busy" },
+  { name: "CEO", role: "Aprobaciones", initials: "CE", color: "#F5C97A", tasks: 3, done: 1, status: "pending" },
 ];
 
 const recentActivity = [
-  { user: "Ana García", action: "Subió 3 nuevos assets a la biblioteca", time: "hace 2h", icon: "AG", color: "#4D9FFF" },
-  { user: "Luis Martín", action: "Marcó como listo: Reel primavera 2026", time: "hace 4h", icon: "LM", color: "#00E5A0" },
-  { user: "CEO", action: "Aprobó: Look editorial mayo", time: "hace 6h", icon: "CE", color: "#FFD60A" },
-  { user: "Marta Ruiz", action: "Movió 'Lanzamiento perfume' a En revisión", time: "ayer", icon: "MR", color: "#C084FC" },
-  { user: "Ana García", action: "Creó nueva tarjeta: Tutorial skincare", time: "ayer", icon: "AG", color: "#4D9FFF" },
+  { user: "Ana García", action: "Subió 3 nuevos assets a la biblioteca", time: "hace 2h", icon: "AG", color: "#85B8E8" },
+  { user: "Luis Martín", action: "Marcó como listo: Reel primavera 2026", time: "hace 4h", icon: "LM", color: "var(--green)" },
+  { user: "CEO", action: "Aprobó: Look editorial mayo", time: "hace 6h", icon: "CE", color: "#F5C97A" },
+  { user: "Marta Ruiz", action: "Movió 'Lanzamiento perfume' a En revisión", time: "ayer", icon: "MR", color: "#B8A8E8" },
+  { user: "Ana García", action: "Creó nueva tarjeta: Tutorial skincare", time: "ayer", icon: "AG", color: "#85B8E8" },
 ];
 
 const statusLabel: Record<string, { label: string; cls: string }> = {

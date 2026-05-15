@@ -150,7 +150,7 @@ export default function PublishPage() {
                     border: "1px solid rgba(192,132,252,0.25)",
                     fontSize: 12,
                     fontWeight: 600,
-                    color: "#C084FC",
+                    color: "#B8A8E8",
                     cursor: "pointer",
                   }}
                 >

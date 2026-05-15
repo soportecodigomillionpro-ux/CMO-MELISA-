@@ -28,10 +28,10 @@ const followerGrowth = [
 ];
 
 const contentMix = [
-  { name: "Reels", value: 35, color: "#FF3EA5" },
-  { name: "Carruseles", value: 28, color: "#C084FC" },
-  { name: "Imágenes", value: 22, color: "#4D9FFF" },
-  { name: "Stories", value: 15, color: "#00E5A0" },
+  { name: "Reels", value: 35, color: "#D07FAA" },
+  { name: "Carruseles", value: 28, color: "#B8A8E8" },
+  { name: "Imágenes", value: 22, color: "#85B8E8" },
+  { name: "Stories", value: 15, color: "var(--green)" },
 ];
 
 export default function ReportsPage() {
@@ -68,11 +68,11 @@ export default function ReportsPage() {
       {/* KPI summary */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 14, marginBottom: 24 }}>
         {[
-          { label: "Alcance total", value: "312K", change: "+18%", icon: Eye, color: "#4D9FFF" },
-          { label: "Impresiones", value: "580K", change: "+22%", icon: TrendingUp, color: "#C084FC" },
-          { label: "Nuevos seguidores", value: "+2,700", change: "+6%", icon: Users, color: "#FF3EA5" },
-          { label: "Likes totales", value: "28.4K", change: "+11%", icon: Heart, color: "#FF6EC4" },
-          { label: "Comentarios", value: "1,847", change: "-4%", icon: MessageCircle, color: "#FFD60A" },
+          { label: "Alcance total", value: "312K", change: "+18%", icon: Eye, color: "#85B8E8" },
+          { label: "Impresiones", value: "580K", change: "+22%", icon: TrendingUp, color: "#B8A8E8" },
+          { label: "Nuevos seguidores", value: "+2,700", change: "+6%", icon: Users, color: "#D07FAA" },
+          { label: "Likes totales", value: "28.4K", change: "+11%", icon: Heart, color: "#E8A0BF" },
+          { label: "Comentarios", value: "1,847", change: "-4%", icon: MessageCircle, color: "#F5C97A" },
         ].map((s) => {
           const Icon = s.icon;
           const isUp = s.change.startsWith("+");
@@ -106,7 +106,7 @@ export default function ReportsPage() {
                 contentStyle={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text-primary)", fontSize: 12 }}
                 formatter={(v) => [`${(Number(v) / 1000).toFixed(0)}K`, "Alcance"]}
               />
-              <Bar dataKey="reach" fill="#FF3EA5" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="reach" fill="#D07FAA" radius={[6, 6, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -149,7 +149,7 @@ export default function ReportsPage() {
               <XAxis dataKey="mes" tick={{ fill: "var(--text-muted)", fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis hide />
               <Tooltip contentStyle={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text-primary)", fontSize: 12 }} formatter={(v) => [`${(Number(v) / 1000).toFixed(1)}K`, "Seguidores"]} />
-              <Line type="monotone" dataKey="followers" stroke="#C084FC" strokeWidth={2.5} dot={{ fill: "#C084FC", r: 4 }} />
+              <Line type="monotone" dataKey="followers" stroke="#B8A8E8" strokeWidth={2.5} dot={{ fill: "#B8A8E8", r: 4 }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -163,7 +163,7 @@ export default function ReportsPage() {
               <XAxis type="number" hide />
               <YAxis type="category" dataKey="type" tick={{ fill: "var(--text-muted)", fontSize: 11 }} axisLine={false} tickLine={false} width={80} />
               <Tooltip contentStyle={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 8, color: "var(--text-primary)", fontSize: 12 }} formatter={(v) => [`${v}%`, "Engagement"]} />
-              <Bar dataKey="rate" fill="#00E5A0" radius={[0, 6, 6, 0]} />
+              <Bar dataKey="rate" fill="var(--green)" radius={[0, 6, 6, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
