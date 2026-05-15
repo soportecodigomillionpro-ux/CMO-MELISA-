@@ -20,10 +20,7 @@ import {
   Home,
   X,
   User,
-  Bell,
   LogOut,
-  Moon,
-  Sun,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -82,8 +79,6 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-  const [notifs, setNotifs] = useState(true);
 
   return (
     <aside
@@ -182,74 +177,26 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
 
             {/* Perfil */}
-            <button
-              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s", textAlign: "left" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-base)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "none")}
-            >
+            <div style={{ padding: "8px 10px", display: "flex", alignItems: "center", gap: 10 }}>
               <User size={14} style={{ color: "var(--text-muted)" }} />
               <div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: "var(--text-primary)" }}>Mi perfil</div>
-                <div style={{ fontSize: 10, color: "var(--text-muted)" }}>Melisa Escobar · CMO</div>
+                <div style={{ fontSize: 12, fontWeight: 600, color: "var(--text-primary)" }}>Melisa Escobar</div>
+                <div style={{ fontSize: 10, color: "var(--text-muted)" }}>CMO</div>
               </div>
-            </button>
-
-            {/* Notificaciones toggle */}
-            <button
-              onClick={() => setNotifs(!notifs)}
-              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-base)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "none")}
-            >
-              <Bell size={14} style={{ color: "var(--text-muted)" }} />
-              <span style={{ flex: 1, fontSize: 12, fontWeight: 600, color: "var(--text-primary)", textAlign: "left" }}>Notificaciones</span>
-              <div style={{
-                width: 32, height: 18, borderRadius: 999,
-                background: notifs ? "var(--pink)" : "var(--border-bright)",
-                position: "relative", transition: "background 0.2s", flexShrink: 0
-              }}>
-                <div style={{
-                  position: "absolute", top: 2, left: notifs ? 16 : 2,
-                  width: 14, height: 14, borderRadius: "50%", background: "white",
-                  transition: "left 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.15)"
-                }} />
-              </div>
-            </button>
-
-            {/* Modo oscuro toggle */}
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-base)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "none")}
-            >
-              {darkMode ? <Moon size={14} style={{ color: "var(--text-muted)" }} /> : <Sun size={14} style={{ color: "var(--text-muted)" }} />}
-              <span style={{ flex: 1, fontSize: 12, fontWeight: 600, color: "var(--text-primary)", textAlign: "left" }}>Modo oscuro</span>
-              <div style={{
-                width: 32, height: 18, borderRadius: 999,
-                background: darkMode ? "var(--pink)" : "var(--border-bright)",
-                position: "relative", transition: "background 0.2s", flexShrink: 0
-              }}>
-                <div style={{
-                  position: "absolute", top: 2, left: darkMode ? 16 : 2,
-                  width: 14, height: 14, borderRadius: "50%", background: "white",
-                  transition: "left 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.15)"
-                }} />
-              </div>
-            </button>
+            </div>
 
             {/* Divider */}
-            <div style={{ height: 1, background: "var(--border)", margin: "6px 0" }} />
+            <div style={{ height: 1, background: "var(--border)", margin: "4px 0" }} />
 
             {/* Cerrar sesión */}
-            <button
-              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s" }}
-              onMouseEnter={e => (e.currentTarget.style.background = "rgba(240,152,152,0.08)")}
-              onMouseLeave={e => (e.currentTarget.style.background = "none")}
+            <Link
+              href="/login"
+              style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, transition: "background 0.15s" }}
+              onClick={() => setSettingsOpen(false)}
             >
               <LogOut size={14} style={{ color: "var(--red)" }} />
               <span style={{ fontSize: 12, fontWeight: 600, color: "var(--red)" }}>Cerrar sesión</span>
-            </button>
+            </Link>
           </div>
         )}
 
