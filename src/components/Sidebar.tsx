@@ -19,7 +19,13 @@ import {
   FileText,
   Home,
   X,
+  User,
+  Bell,
+  LogOut,
+  Moon,
+  Sun,
 } from "lucide-react";
+import { useState } from "react";
 
 function IgIcon({ size = 17 }: { size?: number }) {
   return (
@@ -75,6 +81,9 @@ interface SidebarProps {
 
 export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname();
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  const [notifs, setNotifs] = useState(true);
 
   return (
     <aside
@@ -110,30 +119,12 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div
             className="pink-glow"
-            style={{
-              width: 36,
-              height: 36,
-              borderRadius: 10,
-              background: "linear-gradient(135deg, #E8A0BF, #D07FAA)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
+            style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg, #E8A0BF, #D07FAA)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}
           >
             <Zap size={18} color="white" fill="white" />
           </div>
           <div>
-            <div
-              style={{
-                fontFamily: "var(--font-syne, Syne, sans-serif)",
-                fontWeight: 800,
-                fontSize: 20,
-                letterSpacing: "-0.02em",
-                lineHeight: 1,
-              }}
-              className="gradient-text"
-            >
+            <div style={{ fontFamily: "var(--font-syne, Syne, sans-serif)", fontWeight: 800, fontSize: 20, letterSpacing: "-0.02em", lineHeight: 1 }} className="gradient-text">
               CMO
             </div>
             <div style={{ fontSize: 10, color: "var(--text-muted)", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>
@@ -167,7 +158,102 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       </nav>
 
       {/* Bottom user */}
-      <div style={{ borderTop: "1px solid var(--border)", paddingTop: 16, marginTop: 16 }}>
+      <div style={{ borderTop: "1px solid var(--border)", paddingTop: 16, marginTop: 16, position: "relative" }}>
+
+        {/* Settings panel */}
+        {settingsOpen && (
+          <div style={{
+            position: "absolute",
+            bottom: "calc(100% + 8px)",
+            left: 0,
+            right: 0,
+            background: "var(--bg-surface)",
+            border: "1px solid var(--border)",
+            borderRadius: 14,
+            boxShadow: "var(--shadow-lg)",
+            padding: "8px",
+            zIndex: 200,
+          }}>
+            {/* Header */}
+            <div style={{ padding: "8px 10px 12px", borderBottom: "1px solid var(--border)", marginBottom: 6 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: "var(--text-primary)", fontFamily: "var(--font-syne, Syne, sans-serif)" }}>
+                Configuración
+              </div>
+            </div>
+
+            {/* Perfil */}
+            <button
+              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s", textAlign: "left" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-base)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "none")}
+            >
+              <User size={14} style={{ color: "var(--text-muted)" }} />
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 600, color: "var(--text-primary)" }}>Mi perfil</div>
+                <div style={{ fontSize: 10, color: "var(--text-muted)" }}>Melisa Escobar · CMO</div>
+              </div>
+            </button>
+
+            {/* Notificaciones toggle */}
+            <button
+              onClick={() => setNotifs(!notifs)}
+              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-base)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "none")}
+            >
+              <Bell size={14} style={{ color: "var(--text-muted)" }} />
+              <span style={{ flex: 1, fontSize: 12, fontWeight: 600, color: "var(--text-primary)", textAlign: "left" }}>Notificaciones</span>
+              <div style={{
+                width: 32, height: 18, borderRadius: 999,
+                background: notifs ? "var(--pink)" : "var(--border-bright)",
+                position: "relative", transition: "background 0.2s", flexShrink: 0
+              }}>
+                <div style={{
+                  position: "absolute", top: 2, left: notifs ? 16 : 2,
+                  width: 14, height: 14, borderRadius: "50%", background: "white",
+                  transition: "left 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.15)"
+                }} />
+              </div>
+            </button>
+
+            {/* Modo oscuro toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-base)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "none")}
+            >
+              {darkMode ? <Moon size={14} style={{ color: "var(--text-muted)" }} /> : <Sun size={14} style={{ color: "var(--text-muted)" }} />}
+              <span style={{ flex: 1, fontSize: 12, fontWeight: 600, color: "var(--text-primary)", textAlign: "left" }}>Modo oscuro</span>
+              <div style={{
+                width: 32, height: 18, borderRadius: 999,
+                background: darkMode ? "var(--pink)" : "var(--border-bright)",
+                position: "relative", transition: "background 0.2s", flexShrink: 0
+              }}>
+                <div style={{
+                  position: "absolute", top: 2, left: darkMode ? 16 : 2,
+                  width: 14, height: 14, borderRadius: "50%", background: "white",
+                  transition: "left 0.2s", boxShadow: "0 1px 3px rgba(0,0,0,0.15)"
+                }} />
+              </div>
+            </button>
+
+            {/* Divider */}
+            <div style={{ height: 1, background: "var(--border)", margin: "6px 0" }} />
+
+            {/* Cerrar sesión */}
+            <button
+              style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 10px", borderRadius: 8, background: "none", border: "none", cursor: "pointer", transition: "background 0.15s" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "rgba(240,152,152,0.08)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "none")}
+            >
+              <LogOut size={14} style={{ color: "var(--red)" }} />
+              <span style={{ fontSize: 12, fontWeight: 600, color: "var(--red)" }}>Cerrar sesión</span>
+            </button>
+          </div>
+        )}
+
+        {/* User card */}
         <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", borderRadius: 12, background: "var(--bg-base)", border: "1px solid var(--border)", boxShadow: "var(--shadow-sm)" }}>
           <div style={{ width: 32, height: 32, borderRadius: "50%", background: "linear-gradient(135deg, #E8A0BF, #B8A8E8)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 700, color: "white", flexShrink: 0 }}>
             ME
@@ -178,7 +264,23 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             </div>
             <div style={{ fontSize: 11, color: "var(--text-muted)" }}>CMO</div>
           </div>
-          <Settings size={14} style={{ color: "var(--text-muted)", marginLeft: "auto", cursor: "pointer", flexShrink: 0 }} />
+          <button
+            onClick={() => setSettingsOpen(!settingsOpen)}
+            style={{
+              background: settingsOpen ? "var(--pink-glow)" : "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 4,
+              borderRadius: 6,
+              marginLeft: "auto",
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center",
+              transition: "all 0.15s",
+            }}
+          >
+            <Settings size={14} style={{ color: settingsOpen ? "var(--pink-dark)" : "var(--text-muted)" }} />
+          </button>
         </div>
       </div>
     </aside>
