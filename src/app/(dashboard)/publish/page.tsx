@@ -139,24 +139,8 @@ export default function PublishPage() {
               <Hash size={15} />
               Hashtags
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 12 }}>
-              {["#moda", "#ootd", "#style", "#fashion", "#outfit"].map((tag) => (
-                <span
-                  key={tag}
-                  style={{
-                    padding: "5px 12px",
-                    borderRadius: 999,
-                    background: "rgba(192,132,252,0.1)",
-                    border: "1px solid rgba(192,132,252,0.25)",
-                    fontSize: 12,
-                    fontWeight: 600,
-                    color: "#B8A8E8",
-                    cursor: "pointer",
-                  }}
-                >
-                  {tag}
-                </span>
-              ))}
+            <div style={{ marginBottom: 12, fontSize: 12, color: "var(--text-muted)", fontStyle: "italic" }}>
+              Tus hashtags guardados aparecerán aquí.
             </div>
             <input
               placeholder="Agregar hashtag..."

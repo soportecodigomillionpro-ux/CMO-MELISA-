@@ -52,7 +52,7 @@ const navGroups = [
   {
     label: "Gestión",
     items: [
-      { href: "/aprobaciones", label: "Aprobaciones", icon: CheckSquare, badge: 2 },
+      { href: "/aprobaciones", label: "Aprobaciones", icon: CheckSquare },
       { href: "/cuentas", label: "Cuentas", icon: Globe },
       { href: "/estrategia", label: "Estrategia", icon: Lightbulb },
       { href: "/equipo", label: "Equipo", icon: Users },
